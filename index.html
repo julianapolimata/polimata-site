@@ -891,6 +891,39 @@
       color: #fff;
     }
 
+    /* ============ SUCCESS MODAL ============ */
+    .success-overlay .success-modal {
+      max-width: 460px;
+      text-align: center;
+      padding: 48px 40px 40px;
+    }
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #EAF5EE;
+      color: #1F8A4C;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+    }
+    .success-modal h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0 0 12px;
+    }
+    .success-modal p {
+      color: #4A5568;
+      line-height: 1.6;
+      margin: 0 0 28px;
+      font-size: 1rem;
+    }
+    .success-modal .btn {
+      display: inline-block;
+    }
+
     /* ============ WHATSAPP FLOATING ============ */
     .whatsapp-float {
       position: fixed;
@@ -1555,7 +1588,7 @@
             </div>
             <div class="form-field">
               <label for="empresa">Empresa</label>
-              <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" />
+              <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" required />
             </div>
           </div>
 
@@ -1566,7 +1599,7 @@
             </div>
             <div class="form-field">
               <label for="telefone">Telefone / WhatsApp</label>
-              <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" />
+              <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
             </div>
           </div>
 
@@ -1587,7 +1620,7 @@
 
           <div class="form-field">
             <label for="mensagem">Conte brevemente o seu desafio</label>
-            <textarea id="mensagem" name="mensagem" placeholder="Fale um pouco sobre sua empresa e o que você busca..."></textarea>
+            <textarea id="mensagem" name="mensagem" placeholder="Fale um pouco sobre sua empresa e o que você busca..." required></textarea>
           </div>
 
           <label class="form-consent">
@@ -1775,9 +1808,21 @@
     </div>
   </div>
 
+  <!-- ========== SUCCESS MODAL (após envio do form) ========== -->
+  <div class="modal-overlay success-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal success-modal" role="document">
+      <div class="success-icon-wrap">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h3 id="successTitle">Sua mensagem foi enviada!</h3>
+      <p>Obrigada pelo contato. Em breve entraremos em contato com você.</p>
+      <button type="button" class="btn btn-primary" id="successClose">Fechar</button>
+    </div>
+  </div>
+
   <!-- ========== WHATSAPP FLOAT ========== -->
   <a href="https://wa.me/5519997793378?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pol%C3%ADmata" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.412 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.522 5.26l-.999 3.648 3.966-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
   </a>
 
   <script>
@@ -1978,20 +2023,27 @@
     historyModal.addEventListener('click', (e) => { if (e.target === historyModal) closeHistoryModal(); });
     historyCta.addEventListener('click', closeHistoryModal);
 
-    // Shared ESC handler for both modals
+    // ========== Success modal (após envio do form) ==========
+    const successModal = document.getElementById('successModal');
+    const successClose = document.getElementById('successClose');
+    successClose.addEventListener('click', closeSuccessModal);
+    successModal.addEventListener('click', (e) => { if (e.target === successModal) closeSuccessModal(); });
+
+    // Shared ESC handler for all modals
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeServiceModal();
         closeHistoryModal();
+        closeSuccessModal();
       }
     });
 
-    // Form handler — envia por WhatsApp + e-mail (via Formsubmit)
+    // Form handler — envia por e-mail via Formsubmit e exibe popup de sucesso
     function handleSubmit(e) {
       e.preventDefault();
-      const data = new FormData(e.target);
+      const form = e.target;
+      const data = new FormData(form);
 
-      // 1) Envia cópia por e-mail em background via Formsubmit.co (AJAX)
       const payload = {
         nome: data.get('nome') || '-',
         empresa: data.get('empresa') || '-',
@@ -2003,25 +2055,44 @@
         _template: 'table',
         _captcha: 'false'
       };
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) { submitBtn.textContent = 'Enviando…'; submitBtn.disabled = true; }
+
       fetch('https://formsubmit.co/ajax/contato@polimatagrc.com.br', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
-      }).catch(err => console.warn('Email backup falhou:', err));
+      })
+        .then(() => {
+          form.reset();
+          openSuccessModal();
+        })
+        .catch(err => {
+          console.warn('Envio falhou:', err);
+          alert('Não foi possível enviar agora. Tente novamente em instantes ou fale direto no WhatsApp.');
+        })
+        .finally(() => {
+          if (submitBtn) { submitBtn.textContent = originalLabel; submitBtn.disabled = false; }
+        });
 
-      // 2) Abre o WhatsApp com a mensagem pronta
-      const msg = `Olá, vim pelo site da Polímata.%0A%0ANome: ${data.get('nome')}%0AEmpresa: ${data.get('empresa') || '-'}%0AE-mail: ${data.get('email')}%0ATelefone: ${data.get('telefone') || '-'}%0AInteresse: ${data.get('interesse')}%0A%0AMensagem: ${data.get('mensagem') || '-'}`;
-      window.open(`https://wa.me/5519997793378?text=${msg}`, '_blank');
-
-      // 3) Feedback visual para o usuário
-      const submitBtn = e.target.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        const original = submitBtn.textContent;
-        submitBtn.textContent = 'Enviado! ✓';
-        submitBtn.disabled = true;
-        setTimeout(() => { submitBtn.textContent = original; submitBtn.disabled = false; e.target.reset(); }, 2500);
-      }
       return false;
+    }
+
+    // Popup de sucesso (após envio do form)
+    function openSuccessModal() {
+      const m = document.getElementById('successModal');
+      if (m) { m.classList.add('open'); document.body.classList.add('modal-lock'); }
+    }
+    function closeSuccessModal() {
+      const m = document.getElementById('successModal');
+      if (m) {
+        m.classList.remove('open');
+        if (!modal.classList.contains('open') && !historyModal.classList.contains('open')) {
+          document.body.classList.remove('modal-lock');
+        }
+      }
     }
   </script>
 
