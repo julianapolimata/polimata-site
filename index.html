@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Polímata Consultoria em GRC — Descomplicando a governança corporativa para empresas de todos os portes. Governança, Riscos, Auditoria Interna, Controles Internos e Compliance." />
+  <meta name="keywords" content="GRC, governança corporativa, gestão de riscos, auditoria interna, controles internos, compliance, empresas familiares" />
+  <meta name="author" content="Polímata Consultoria em GRC" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Polímata — Descomplicando a Governança Corporativa" />
+  <meta property="og:description" content="Governança corporativa para todos. Adaptamos as melhores práticas ao porte e momento de cada empresa." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://polimatagrc.com.br" />
+
+  <title>Polímata Consultoria em GRC — Descomplicando a Governança</title>
+
+  <link rel="icon" type="image/png" href="polimata-symbol.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+
+    /* ============ DESIGN TOKENS ============ */
+    :root {
+      --navy: #0A2540;
+      --navy-deep: #071A2E;
+      --navy-soft: #15365A;
+      --copper: #C8895C;
+      --copper-soft: #D89E74;
+      --copper-deep: #A66F44;
+      --cream: #F7F3EE;
+      --sand: #EFE7DC;
+      --ink: #1A1A1A;
+      --gray-700: #4A4A4A;
+      --gray-500: #888888;
+      --gray-300: #D0D0D0;
+      --gray-100: #F4F4F4;
+
+      --radius-sm: 6px;
+      --radius: 12px;
+      --radius-lg: 24px;
+
+      --shadow-sm: 0 2px 8px rgba(10,37,64,0.06);
+      --shadow: 0 8px 32px rgba(10,37,64,0.10);
+      --shadow-lg: 0 20px 60px rgba(10,37,64,0.18);
+
+      --container: 1200px;
+      --gutter: clamp(20px, 4vw, 48px);
+    }
+
+    /* ============ TYPOGRAPHY ============ */
+    .display {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); font-weight: 500; }
+    h4 { font-size: 1.1rem; font-weight: 500; }
+    p { color: var(--gray-700); }
+
+    .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .accent { color: var(--copper); }
+
+    /* ============ LAYOUT ============ */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    section { padding: clamp(60px, 10vw, 120px) 0; }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--copper);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--copper-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,137,92,0.35);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: #fff;
+    }
+    .btn-ghost-light {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .btn-ghost-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+    .btn-ghost-dark {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-ghost-dark:hover { background: var(--navy); color: #fff; }
+    .btn-access { gap: 8px; }
+    .btn-access svg { flex-shrink: 0; }
+    .btn-arrow { transition: transform 0.2s ease; }
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* ============ NAVIGATION ============ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(10,37,64,0.06);
+      transition: all 0.3s ease;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      font-size: 0.95rem;
+      color: var(--navy);
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+    .nav-menu a:hover { color: var(--copper); }
+    .nav-menu .btn {
+      padding: 10px 22px;
+      font-size: 0.9rem;
+    }
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      width: 40px;
+      height: 40px;
+      position: relative;
+    }
+    .nav-toggle span {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      height: 2px;
+      background: var(--navy);
+      transition: all 0.3s ease;
+    }
+    .nav-toggle span:nth-child(1) { top: 14px; }
+    .nav-toggle span:nth-child(2) { top: 20px; }
+    .nav-toggle span:nth-child(3) { top: 26px; }
+    .nav-toggle.open span:nth-child(1) { top: 20px; transform: rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { top: 20px; transform: rotate(-45deg); }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      padding: 180px 0 100px;
+      background: linear-gradient(135deg, #071A2E 0%, #0A2540 50%, #15365A 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 60%;
+      height: 140%;
+      background: radial-gradient(ellipse at center, rgba(200,137,92,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-decor {
+      position: absolute;
+      bottom: -80px;
+      left: -60px;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,137,92,0.25);
+      pointer-events: none;
+    }
+    .hero-decor::before, .hero-decor::after {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,137,92,0.2);
+    }
+    .hero-decor::after { inset: 80px; border-color: rgba(200,137,92,0.15); }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(320px, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-content { max-width: 640px; }
+    .hero .eyebrow { color: var(--copper-soft); }
+    .hero h1 {
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      color: var(--copper-soft);
+    }
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      max-width: 560px;
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--copper-soft);
+      line-height: 1;
+    }
+    .hero-stat span {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+      display: block;
+    }
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .hero-card {
+      position: relative;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      color: #fff;
+      width: 100%;
+    }
+    .hero-card-1 { align-self: flex-end; width: 92%; }
+    .hero-card-2 { align-self: flex-start; width: 92%; margin-left: 4%; }
+    .hero-card-3 { align-self: flex-end; width: 92%; }
+    .hero-card h4 {
+      color: #fff;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+    .hero-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .hero-card-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(200,137,92,0.2);
+      display: grid; place-items: center;
+      margin-bottom: 12px;
+      color: var(--copper-soft);
+    }
+
+    /* ============ QUICK ACCESS ============ */
+    .quick {
+      background: var(--cream);
+      padding: 32px 0;
+    }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(10,37,64,0.1);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .quick-item {
+      background: var(--cream);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s ease;
+      font-size: 0.9rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .quick-item:hover {
+      background: #fff;
+      color: var(--copper);
+    }
+    .quick-item svg {
+      flex-shrink: 0;
+      color: var(--copper);
+    }
+
+    /* ============ SECTION HEADERS ============ */
+    .section-header {
+      max-width: 720px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+    .section-header.left {
+      text-align: left;
+      margin-left: 0;
+    }
+    .section-header h2 { margin-bottom: 1rem; }
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--gray-700);
+    }
+
+    /* ============ "O QUE É GRC?" ============ */
+    .educate {
+      background: var(--cream);
+    }
+    .educate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .educate-text .eyebrow { margin-bottom: 1rem; }
+    .educate-text h2 { margin-bottom: 1.5rem; }
+    .educate-text p { margin-bottom: 1rem; font-size: 1.05rem; }
+    .educate-text p strong { color: var(--navy); font-weight: 600; }
+    .educate-definitions {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .definition {
+      background: #fff;
+      padding: 28px;
+      border-radius: var(--radius);
+      border-left: 3px solid var(--copper);
+      box-shadow: var(--shadow-sm);
+    }
+    .definition-letter {
+      font-family: 'Raleway', sans-serif;
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--copper);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .definition h4 {
+      color: var(--navy);
+      margin-bottom: 6px;
+      font-size: 1.15rem;
+    }
+    .definition p { margin: 0; font-size: 0.95rem; }
+
+    /* ============ SERVIÇOS ============ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--copper);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: transparent;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: var(--sand);
+      display: grid; place-items: center;
+      color: var(--copper);
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-link {
+      color: var(--copper);
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+    }
+    .service-link:hover { color: var(--copper-deep); }
+    .service-card:hover .service-link { gap: 12px; }
+
+    /* ============ PARA QUEM É? ============ */
+    .audience {
+      background: var(--navy);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .audience::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 50%;
+      height: 140%;
+      background: radial-gradient(ellipse at center, rgba(200,137,92,0.15) 0%, transparent 60%);
+    }
+    .audience h2 { color: #fff; }
+    .audience .section-header p { color: rgba(255,255,255,0.75); }
+    .audience-list {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+    .audience-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: all 0.2s ease;
+    }
+    .audience-item:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(200,137,92,0.4);
+    }
+    .audience-check {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--copper);
+      display: grid; place-items: center;
+      color: #fff;
+      margin-top: 2px;
+    }
+    .audience-item h4 { color: #fff; margin-bottom: 4px; }
+    .audience-item p { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0; }
+
+    /* ============ COMO ATENDEMOS? ============ */
+    .process {
+      background: var(--cream);
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .process-step {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      position: relative;
+      border: 1px solid rgba(10,37,64,0.08);
+    }
+    .process-number {
+      font-family: 'Raleway', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 500;
+      color: var(--copper);
+      line-height: 1;
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+    .process-step h4 {
+      color: var(--navy);
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+    }
+    .process-step p { font-size: 0.9rem; }
+
+    /* ============ SOBRE A JULIANA ============ */
+    .about-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    }
+    .about-img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 2rem;
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 20px; right: 20px;
+      bottom: 20px; left: 20px;
+      border: 1px solid rgba(200,137,92,0.3);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .about-text blockquote {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      color: var(--navy);
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: 0.005em;
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--copper);
+    }
+    .about-credentials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--gray-300);
+      border-bottom: 1px solid var(--gray-300);
+    }
+    .credential strong {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--copper);
+      line-height: 1;
+    }
+    .credential span {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ============ DEPOIMENTOS (placeholder) ============ */
+    .testimonials {
+      background: var(--cream);
+    }
+    .testimonial-placeholder {
+      text-align: center;
+      padding: 60px 40px;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px dashed var(--gray-300);
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--gray-500);
+    }
+    .testimonial-placeholder strong { color: var(--navy); display: block; margin-bottom: 8px; }
+
+    /* ============ CTA / FORMULÁRIO ============ */
+    .contact {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 60%;
+      height: 180%;
+      background: radial-gradient(ellipse at center, rgba(200,137,92,0.15) 0%, transparent 60%);
+    }
+    .contact-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-text h2 { color: #fff; margin-bottom: 1.5rem; }
+    .contact-text p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      color: #fff;
+      transition: all 0.2s ease;
+    }
+    .channel:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--copper);
+      transform: translateX(4px);
+    }
+    .channel-icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(200,137,92,0.2);
+      display: grid; place-items: center;
+      color: var(--copper-soft);
+      flex-shrink: 0;
+    }
+    .channel-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      display: block;
+    }
+    .channel-value {
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .contact-form h3 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .contact-form > p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-field { margin-bottom: 1rem; }
+    .form-field label {
+      display: block;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--copper);
+      background: rgba(255,255,255,0.12);
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+    .form-field select option { background: var(--navy-deep); color: #fff; }
+    .form-field textarea { resize: vertical; min-height: 100px; }
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 1.5rem 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .form-consent input { margin-top: 4px; accent-color: var(--copper); }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--copper);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: background 0.2s ease;
+    }
+    .form-submit:hover { background: var(--copper-deep); }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 30px;
+      font-size: 0.9rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand img {
+      width: 160px;
+      height: auto;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .footer-brand p { color: rgba(255,255,255,0.6); max-width: 300px; font-size: 0.9rem; }
+    .footer h5 {
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 0.5rem; }
+    .footer ul a { color: rgba(255,255,255,0.7); transition: color 0.2s ease; }
+    .footer ul a:hover { color: var(--copper); }
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      display: grid; place-items: center;
+      transition: all 0.2s ease;
+    }
+    .footer-social a:hover {
+      background: var(--copper);
+      color: #fff;
+    }
+
+    /* ============ WHATSAPP FLOATING ============ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+      z-index: 90;
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); }
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: #25D366;
+      opacity: 0.3;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.4; }
+      100% { transform: scale(1.3); opacity: 0; }
+    }
+
+    /* ============ SERVICE MODAL ============ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 26, 46, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 5vh 1.5rem;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      max-width: 780px;
+      width: 100%;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+      animation: modalIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+      color: #fff;
+      padding: 36px 40px 28px;
+      position: relative;
+    }
+    .modal-header .modal-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: rgba(200,137,92,0.2);
+      color: var(--copper-soft);
+      display: grid; place-items: center;
+      margin-bottom: 18px;
+    }
+    .modal-header h3 {
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
+      margin: 0;
+    }
+    .modal-header .modal-sub {
+      color: rgba(255,255,255,0.75);
+      margin-top: 10px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 18px;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.22); }
+    .modal-body {
+      padding: 32px 40px 8px;
+    }
+    .modal-body h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      color: var(--navy);
+      font-size: 1.05rem;
+      margin-top: 28px;
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+    .modal-body h4:first-child { margin-top: 0; }
+    .modal-body p { color: var(--text-soft); line-height: 1.7; }
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .modal-body ul li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .modal-body ul li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 8px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: rgba(200,137,92,0.15);
+      border: 2px solid var(--copper);
+    }
+    .modal-footer {
+      padding: 24px 40px 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--sand);
+      margin-top: 24px;
+    }
+    .modal-footer .hint {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .modal-header { padding: 28px 24px 22px; }
+      .modal-body { padding: 24px 24px 8px; }
+      .modal-footer { padding: 20px 24px 28px; flex-direction: column; align-items: stretch; }
+      .modal-footer .btn { width: 100%; justify-content: center; }
+    }
+    body.modal-lock { overflow: hidden; }
+
+    /* ============ ANIMATIONS ============ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .educate-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .about-preview-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { max-width: 400px; margin: 0 auto; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .quick-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        background: #fff;
+        padding: 2rem var(--gutter);
+        box-shadow: var(--shadow);
+        gap: 1.5rem;
+        align-items: flex-start;
+        transform: translateY(-120%);
+        transition: transform 0.3s ease;
+      }
+      .nav-menu.open { transform: translateY(0); }
+      .nav-toggle { display: block; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .about-credentials { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .credential strong { font-size: 1.5rem; }
+      .credential span { font-size: 0.75rem; }
+      .contact-form { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo" aria-label="Polímata - Consultoria em GRC">
+        <img src="polimata-logo-horizontal.png" alt="Polímata - Consultoria em GRC" />
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#quem">Para quem</a></li>
+        <li><a href="#metodologia">Metodologia</a></li>
+        <li>
+          <!-- TODO: substituir "#" pela URL do sistema em nuvem (Vercel) quando Juliana enviar -->
+          <a href="#" id="clientAccessLink" class="btn btn-primary btn-access" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Acesso do Cliente
+          </a>
+        </li>
+        <li><a href="#contato" class="btn btn-ghost-dark">Entre em contato</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-decor"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow">Governança Corporativa para Todos</span>
+          <h1>Descomplicando a <em>governança</em> corporativa.</h1>
+          <p class="hero-subtitle">
+            Adaptamos as melhores práticas de mercado ao porte e momento da sua empresa —
+            para que governança, riscos e compliance deixem de ser barreira e virem
+            vantagem competitiva.
+          </p>
+          <div class="hero-ctas">
+            <a href="#contato" class="btn btn-primary">
+              Entre em contato
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#servicos" class="btn btn-ghost-light">Ver serviços</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>10+</strong>
+              <span>anos de experiência em GRC</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Big 4</strong>
+              <span>formação e atuação internacional</span>
+            </div>
+            <div class="hero-stat">
+              <strong>7</strong>
+              <span>frentes de atuação integradas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card hero-card-1">
+            <div class="hero-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg>
+            </div>
+            <h4>Governança Corporativa</h4>
+            <p>Estruturas sob medida para cada porte de empresa.</p>
+          </div>
+          <div class="hero-card hero-card-2">
+            <div class="hero-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5zM12 8v4M12 16h.01"/></svg>
+            </div>
+            <h4>Gestão de Riscos</h4>
+            <p>Antecipe ameaças e descubra oportunidades.</p>
+          </div>
+          <div class="hero-card hero-card-3">
+            <div class="hero-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+            </div>
+            <h4>Compliance</h4>
+            <p>Ética, integridade e conformidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUICK ACCESS ========== -->
+  <section class="quick" aria-label="Acesso rápido">
+    <div class="container">
+      <div class="quick-grid">
+        <a href="#servicos" class="quick-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+          O que é Governança?
+        </a>
+        <a href="#servicos" class="quick-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5 4 9 9 10"/></svg>
+          O que é GRC?
+        </a>
+        <a href="#servicos" class="quick-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          Empresas Familiares
+        </a>
+        <a href="#servicos" class="quick-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 2L3 7v6c0 5 4 9 9 10"/></svg>
+          Auditoria Interna
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== O QUE É GRC? ========== -->
+  <section class="educate" id="sobre">
+    <div class="container">
+      <div class="educate-grid">
+        <div class="educate-text">
+          <span class="eyebrow">Entenda sem complicar</span>
+          <h2>O que é GRC, afinal?</h2>
+          <p>
+            <strong>GRC</strong> significa <strong>Governança, Riscos e Compliance</strong> —
+            três pilares que, quando bem integrados, tornam qualquer empresa
+            mais sólida, previsível e preparada para crescer.
+          </p>
+          <p>
+            Parece coisa de multinacional? Não é. GRC se aplica a empresas de
+            <strong>todos os portes</strong> — inclusive (e principalmente) a
+            negócios familiares e de médio porte que querem profissionalizar a gestão.
+          </p>
+          <p>
+            Nosso trabalho é <strong>traduzir essas práticas</strong> e adaptá-las à
+            realidade da sua empresa — sem jargão, sem excesso, sem burocracia desnecessária.
+          </p>
+        </div>
+
+        <div class="educate-definitions">
+          <div class="definition">
+            <div class="definition-letter">G</div>
+            <h4>Governança</h4>
+            <p>O conjunto de regras, processos e estruturas que orientam como a empresa é dirigida e monitorada — definindo papéis, decisões e prestação de contas.</p>
+          </div>
+          <div class="definition">
+            <div class="definition-letter">R</div>
+            <h4>Riscos</h4>
+            <p>A identificação, avaliação e tratamento dos eventos que podem impactar os objetivos do negócio — tanto ameaças quanto oportunidades.</p>
+          </div>
+          <div class="definition">
+            <div class="definition-letter">C</div>
+            <h4>Compliance</h4>
+            <p>A garantia de que a empresa opera em conformidade com leis, regulamentos e seus próprios valores — prevenindo fraudes e fortalecendo a cultura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVIÇOS ========== -->
+  <section id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Nossas frentes de atuação</span>
+        <h2>O que fazemos</h2>
+        <p>Sete áreas integradas que entregam, juntas, uma estrutura sólida de governança e sustentabilidade para sua empresa.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card" data-service="governanca">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg>
+          </div>
+          <h3>Governança Corporativa</h3>
+          <p>Estruturas de governança sob medida: conselhos, comitês, políticas e rituais de decisão que se encaixam no porte e no momento da sua empresa.</p>
+          <button type="button" class="service-link" data-open-service="governanca">Saiba mais →</button>
+        </article>
+
+        <article class="service-card" data-service="riscos">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5zM12 8v4M12 16h.01"/></svg>
+          </div>
+          <h3>Gestão de Riscos</h3>
+          <p>Mapeamento, avaliação e tratamento de riscos estratégicos e operacionais — para você antecipar ameaças e enxergar oportunidades antes dos concorrentes.</p>
+          <button type="button" class="service-link" data-open-service="riscos">Saiba mais →</button>
+        </article>
+
+        <article class="service-card" data-service="auditoria">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/></svg>
+          </div>
+          <h3>Auditoria Interna</h3>
+          <p>Avaliação independente da efetividade dos controles, processos e sistemas — com recomendações práticas para melhorar e mitigar riscos.</p>
+          <button type="button" class="service-link" data-open-service="auditoria">Saiba mais →</button>
+        </article>
+
+        <article class="service-card" data-service="controles">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+          </div>
+          <h3>Controles Internos</h3>
+          <p>Controles desenhados para a realidade da sua empresa — padronizando processos, gerando informações confiáveis e inibindo práticas irregulares.</p>
+          <button type="button" class="service-link" data-open-service="controles">Saiba mais →</button>
+        </article>
+
+        <article class="service-card" data-service="compliance">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM8 12l3 3 5-7"/></svg>
+          </div>
+          <h3>Compliance</h3>
+          <p>Programas de conformidade que vão além do checklist — promovem ética, integridade e criam uma cultura organizacional resiliente.</p>
+          <button type="button" class="service-link" data-open-service="compliance">Saiba mais →</button>
+        </article>
+
+        <article class="service-card" data-service="familiar">
+          <div class="service-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2h-5v-7h-4v7H5a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3>Governança de Empresas Familiares</h3>
+          <p>Sucessão, profissionalização, separação de papéis e resolução de conflitos — para que a tradição familiar vire alicerce, não obstáculo.</p>
+          <button type="button" class="service-link" data-open-service="familiar">Saiba mais →</button>
+        </article>
+
+        <article class="service-card service-card--highlight" data-service="esg">
+          <div class="service-badge">Novo</div>
+          <div class="service-icon service-icon--green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+          </div>
+          <h3>Diagnóstico ESG</h3>
+          <p>Avaliação estruturada de maturidade nos pilares Ambiental, Social e Governança — baseada em GRI, ABNT PR 2030, ISO 26000 e IBGC. Identifique gaps e trace o caminho para virar referência em sustentabilidade.</p>
+          <button type="button" class="service-link" data-open-service="esg">Saiba mais →</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARA QUEM É? ========== -->
+  <section class="audience" id="quem">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" style="color: var(--copper-soft);">Para quem é</span>
+        <h2>Nossos serviços são para você se…</h2>
+        <p>Identifique se a Polímata é o parceiro certo para o momento da sua empresa.</p>
+      </div>
+
+      <div class="audience-list">
+        <div class="audience-item">
+          <div class="audience-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <div>
+            <h4>Sua empresa está crescendo e os processos não acompanham</h4>
+            <p>Você sente que as decisões ficam travadas, os papéis se misturam, e faltam estruturas claras para escalar com segurança.</p>
+          </div>
+        </div>
+
+        <div class="audience-item">
+          <div class="audience-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <div>
+            <h4>É uma empresa familiar preparando sucessão ou profissionalização</h4>
+            <p>Quer separar família e negócio, estruturar sucessão, reduzir conflitos e garantir a continuidade do que foi construído.</p>
+          </div>
+        </div>
+
+        <div class="audience-item">
+          <div class="audience-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <div>
+            <h4>Precisa se preparar para investidores, auditorias ou M&A</h4>
+            <p>Governança, controles e compliance serão fatores decisivos — e você quer chegar preparado, não apagando incêndio.</p>
+          </div>
+        </div>
+
+        <div class="audience-item">
+          <div class="audience-check">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <div>
+            <h4>Quer profissionalizar a gestão sem engessar o negócio</h4>
+            <p>Já ouviu que governança é para grandes corporações e acha que vai burocratizar tudo — mas sabe que precisa evoluir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMO ATENDEMOS? ========== -->
+  <section class="process" id="metodologia">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Nossa metodologia</span>
+        <h2>Como atendemos você</h2>
+        <p>Um processo claro, didático e adaptado — para que a governança deixe de ser teoria e vire prática no seu dia a dia.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-number">01</div>
+          <h4>Diagnóstico</h4>
+          <p>Entendemos a fundo a realidade, o porte e o momento da sua empresa — sem copiar modelos prontos.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">02</div>
+          <h4>Planejamento</h4>
+          <p>Desenhamos, junto com você, a estrutura de governança mais adequada — com objetivos claros e prioridades.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">03</div>
+          <h4>Implementação</h4>
+          <p>Colocamos em prática: políticas, processos, comitês, controles — com linguagem acessível e envolvimento da equipe.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">04</div>
+          <h4>Autonomia</h4>
+          <p>Capacitamos sua equipe para operar de forma independente — porque nosso sucesso é você não precisar mais de nós.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE A JULIANA ========== -->
+  <section id="sobre-juliana">
+    <div class="container">
+      <div class="about-preview-grid">
+        <div class="about-img-wrap">
+          <div class="about-img-placeholder">
+            [Foto profissional da Juliana Carolino]<br>
+            <small>Substituir por foto real</small>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="eyebrow">Quem está por trás</span>
+          <h2>Juliana Carolino</h2>
+          <p>
+            Fundadora da Polímata, com mais de 10 anos de experiência em Governança Corporativa,
+            Gestão de Riscos, Auditoria Interna e Controles Internos.
+          </p>
+          <blockquote>
+            Acredito que governança corporativa não é privilégio de grandes corporações —
+            é ferramenta de crescimento para qualquer empresa que queira durar.
+          </blockquote>
+
+          <div class="about-credentials">
+            <div class="credential">
+              <strong>10+</strong>
+              <span>anos de atuação</span>
+            </div>
+            <div class="credential">
+              <strong>Big 4</strong>
+              <span>trajetória internacional</span>
+            </div>
+            <div class="credential">
+              <strong>Múltiplos</strong>
+              <span>setores atendidos</span>
+            </div>
+          </div>
+
+          <a href="#contato" class="btn btn-secondary">
+            Conhecer trajetória completa
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DEPOIMENTOS (placeholder) ========== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">O que dizem</span>
+        <h2>Quem já trabalhou com a Polímata</h2>
+      </div>
+      <div class="testimonial-placeholder">
+        <strong>Seção reservada para depoimentos</strong>
+        Quando você tiver 3-5 depoimentos de clientes, essa seção vira uma das mais
+        persuasivas do site. Conseguir um depoimento é questão de pedir — e faz diferença real em conversão.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTATO ========== -->
+  <section class="contact" id="contato">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <span class="eyebrow" style="color: var(--copper-soft);">Vamos conversar</span>
+          <h2>Pronto para estruturar sua empresa?</h2>
+          <p>
+            Conte o que você precisa — em uma conversa inicial, entendemos o momento
+            da sua empresa e mostramos como a Polímata pode ajudar. Sem compromisso.
+          </p>
+
+          <div class="contact-channels">
+            <a href="https://wa.me/5519997793378?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20a%20Pol%C3%ADmata" class="channel" target="_blank" rel="noopener">
+              <div class="channel-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+              </div>
+              <div>
+                <span class="channel-label">WhatsApp</span>
+                <span class="channel-value">+55 (19) 99779-3378</span>
+              </div>
+            </a>
+
+            <a href="mailto:contato@polimatagrc.com.br" class="channel">
+              <div class="channel-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+              </div>
+              <div>
+                <span class="channel-label">E-mail</span>
+                <span class="channel-value">contato@polimatagrc.com.br</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/company/polimatagrc" class="channel" target="_blank" rel="noopener">
+              <div class="channel-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </div>
+              <div>
+                <span class="channel-label">LinkedIn</span>
+                <span class="channel-value">@polimatagrc</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
+          <h3>Fale com a gente</h3>
+          <p>Resposta em até 1 dia útil.</p>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+            </div>
+            <div class="form-field">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+            </div>
+            <div class="form-field">
+              <label for="telefone">Telefone / WhatsApp</label>
+              <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="interesse">Qual o seu interesse?</label>
+            <select id="interesse" name="interesse" required>
+              <option value="">Selecione uma opção</option>
+              <option value="governanca">Governança Corporativa</option>
+              <option value="riscos">Gestão de Riscos</option>
+              <option value="auditoria">Auditoria Interna</option>
+              <option value="controles">Controles Internos</option>
+              <option value="compliance">Compliance</option>
+              <option value="familiar">Governança de Empresa Familiar</option>
+              <option value="esg">Diagnóstico ESG</option>
+              <option value="outro">Outro / Não tenho certeza</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="mensagem">Conte brevemente o seu desafio</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Fale um pouco sobre sua empresa e o que você busca..."></textarea>
+          </div>
+
+          <label class="form-consent">
+            <input type="checkbox" required />
+            <span>Concordo com a <a href="#" style="color: var(--copper-soft); text-decoration: underline;">Política de Privacidade</a> e autorizo o tratamento dos meus dados conforme a LGPD.</span>
+          </label>
+
+          <button type="submit" class="form-submit">
+            Enviar mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="polimata-logo-stacked-dark.png" alt="Polímata - Consultoria em GRC" />
+          <p>Governança corporativa para todos. Descomplicando GRC para empresas de todos os portes.</p>
+        </div>
+
+        <div>
+          <h5>Serviços</h5>
+          <ul>
+            <li><a href="#servicos">Governança Corporativa</a></li>
+            <li><a href="#servicos">Gestão de Riscos</a></li>
+            <li><a href="#servicos">Auditoria Interna</a></li>
+            <li><a href="#servicos">Controles Internos</a></li>
+            <li><a href="#servicos">Compliance</a></li>
+            <li><a href="#servicos">Empresas Familiares</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Polímata</h5>
+          <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#quem">Para quem</a></li>
+            <li><a href="#metodologia">Metodologia</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Contato</h5>
+          <ul>
+            <li><a href="mailto:contato@polimatagrc.com.br">contato@polimatagrc.com.br</a></li>
+            <li><a href="https://wa.me/5519997793378">+55 (19) 99779-3378</a></li>
+            <li><a href="https://www.linkedin.com/company/polimatagrc">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/polimatagrc">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Polímata Consultoria em GRC. Todos os direitos reservados.</div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/polimatagrc" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/polimatagrc" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
+          </a>
+          <a href="mailto:contato@polimatagrc.com.br" aria-label="E-mail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SERVICE DETAIL MODAL ========== -->
+  <div class="modal-overlay" id="serviceModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" role="document">
+      <div class="modal-header">
+        <button type="button" class="modal-close" id="modalClose" aria-label="Fechar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <div class="modal-icon" id="modalIcon"></div>
+        <h3 id="modalTitle"></h3>
+        <p class="modal-sub" id="modalSub"></p>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer">
+        <p class="hint">Quer entender como essa frente se aplica à sua empresa?</p>
+        <a href="#contato" class="btn btn-primary" id="modalCta">
+          Entre em contato
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WHATSAPP FLOAT ========== -->
+  <a href="https://wa.me/5519997793378?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pol%C3%ADmata" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+  </a>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    // Scroll-reveal (simple)
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(s => {
+      s.classList.add('fade-in');
+      observer.observe(s);
+    });
+
+    // ========== Service detail modal ==========
+    const SERVICE_DATA = {
+      governanca: {
+        title: 'Governança Corporativa',
+        sub: 'Estruturas de decisão, conselhos e rituais sob medida para o porte e o momento da sua empresa.',
+        icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg>',
+        intro: 'Boa governança é o que diferencia empresas que crescem de forma sustentável das que perdem direção conforme escalam. Ajudamos a desenhar e implementar a estrutura certa — sem burocracia desnecessária — para que decisões fluam com clareza, responsabilidade e alinhamento estratégico.',
+        deliverables: [
+          'Diagnóstico do nível atual de maturidade em governança',
+          'Desenho de conselhos consultivos, de administração e comitês',
+          'Elaboração de estatutos, regimentos internos e políticas',
+          'Definição de papéis, responsabilidades e alçadas',
+          'Rituais de governança: agenda, pauta, atas e indicadores',
+          'Programa de capacitação para conselheiros e executivos'
+        ],
+        benefits: 'Decisões mais rápidas e informadas, maior credibilidade diante de investidores e parceiros, e uma estrutura que escala junto com o negócio.'
+      },
+      riscos: {
+        title: 'Gestão de Riscos',
+        sub: 'Antecipe ameaças e enxergue oportunidades antes dos concorrentes.',
+        icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5zM12 8v4M12 16h.01"/></svg>',
+        intro: 'Gestão de riscos não é sobre evitar riscos — é sobre tomar riscos inteligentes. Estruturamos programas alinhados a frameworks reconhecidos (COSO ERM, ISO 31000) e adaptados à realidade da sua operação.',
+        deliverables: [
+          'Mapeamento e classificação de riscos estratégicos, operacionais, financeiros e de conformidade',
+          'Matriz de riscos com critérios de probabilidade e impacto',
+          'Apetite e tolerância a risco alinhados à estratégia',
+          'Planos de tratamento, mitigação e monitoramento',
+          'Indicadores-chave de risco (KRIs) e relatórios para a liderança',
+          'Cultura de risco: treinamento e comunicação'
+        ],
+        benefits: 'Menos surpresas desagradáveis, decisões mais conscientes e uma posição mais sólida para aproveitar oportunidades que seus concorrentes ignoram.'
+      },
+      auditoria: {
+        title: 'Auditoria Interna',
+        sub: 'Avaliação independente e pragmática da efetividade dos seus controles, processos e sistemas.',
+        icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/></svg>',
+        intro: 'Nossa auditoria vai além da verificação: gera insights acionáveis para melhorar processos, reduzir riscos e proteger o valor da empresa. Aplicamos metodologias baseadas em riscos e alinhadas às normas do IIA.',
+        deliverables: [
+          'Plano anual de auditoria baseado em riscos',
+          'Execução de auditorias operacionais, financeiras e de conformidade',
+          'Revisão da efetividade de controles internos',
+          'Relatórios executivos com achados, causas-raiz e recomendações',
+          'Acompanhamento de planos de ação e status reports',
+          'Auditoria co-sourcing para complementar times internos'
+        ],
+        benefits: 'Uma visão independente e confiável sobre o que realmente está funcionando — e o que precisa de atenção — antes que vire um problema.'
+      },
+      controles: {
+        title: 'Controles Internos',
+        sub: 'Controles desenhados para a realidade da sua empresa, gerando informação confiável e inibindo práticas irregulares.',
+        icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>',
+        intro: 'Controles internos bem desenhados protegem o patrimônio, padronizam a operação e dão confiança à gestão. Trabalhamos para equilibrar eficácia e praticidade — sem travar o dia a dia do negócio.',
+        deliverables: [
+          'Mapeamento de processos críticos (financeiro, suprimentos, vendas, RH)',
+          'Identificação de riscos e desenho de controles-chave',
+          'Matrizes de risco e controle (RCM) por processo',
+          'Segregação de funções e revisão de alçadas',
+          'Automação de controles quando possível',
+          'Testes de desenho e efetividade operacional'
+        ],
+        benefits: 'Informação confiável para decidir, menor exposição a fraudes e erros, e uma operação que roda com mais previsibilidade.'
+      },
+      compliance: {
+        title: 'Compliance',
+        sub: 'Programas de conformidade que vão além do checklist — promovem ética, integridade e cultura resiliente.',
+        icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM8 12l3 3 5-7"/></svg>',
+        intro: 'Um programa de compliance efetivo protege a empresa, fortalece a reputação e cria ambientes de trabalho mais saudáveis. Construímos programas proporcionais ao porte e ao setor, alinhados à Lei Anticorrupção, LGPD e demais normas aplicáveis.',
+        deliverables: [
+          'Avaliação de maturidade do programa de compliance',
+          'Código de ética e políticas específicas (anticorrupção, conflito de interesses, brindes e hospitalidade)',
+          'Canal de denúncias e protocolo de investigações',
+          'Due diligence de terceiros e integração a processos comerciais',
+          'Treinamentos e comunicação para disseminar a cultura',
+          'Monitoramento contínuo e reporting para a liderança'
+        ],
+        benefits: 'Menor exposição a sanções e escândalos, credibilidade reforçada com clientes, investidores e órgãos reguladores, e um ambiente interno mais íntegro.'
+      },
+      familiar: {
+        title: 'Governança de Empresas Familiares',
+        sub: 'Sucessão, profissionalização e separação saudável entre família, sociedade e gestão.',
+        icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2h-5v-7h-4v7H5a2 2 0 01-2-2z"/></svg>',
+        intro: 'Empresas familiares carregam uma herança valiosa — e desafios únicos. Ajudamos a estruturar modelos de governança que preservam o legado, profissionalizam a gestão e preparam a próxima geração.',
+        deliverables: [
+          'Diagnóstico dos três círculos: família, propriedade e gestão',
+          'Acordo de sócios e protocolo familiar',
+          'Conselho de família e conselho de administração',
+          'Planejamento sucessório e desenvolvimento de sucessores',
+          'Profissionalização da gestão e atração de executivos',
+          'Mediação de conflitos e alinhamento de expectativas'
+        ],
+        benefits: 'Tradição familiar preservada como alicerce — não como obstáculo —, transição geracional planejada e relações familiares mais harmônicas ao redor do negócio.'
+      },
+      esg: {
+        title: 'Diagnóstico ESG',
+        sub: 'Avaliação estruturada de maturidade nos pilares Ambiental, Social e Governança.',
+        icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>',
+        intro: 'ESG deixou de ser um diferencial para virar exigência de mercado, de financiadores e de clientes. Aplicamos uma metodologia estruturada — baseada em GRI, ABNT PR 2030, ISO 26000 e IBGC — para avaliar onde sua empresa está e traçar o caminho até onde quer chegar.',
+        deliverables: [
+          'Avaliação de maturidade nos três pilares (Ambiental, Social, Governança)',
+          'Análise de materialidade: temas prioritários para o seu setor e stakeholders',
+          'Benchmark com práticas de mercado',
+          'Identificação de gaps e riscos ESG',
+          'Roadmap de evolução com ações de curto, médio e longo prazo',
+          'Base para relatórios de sustentabilidade e indicadores de performance'
+        ],
+        benefits: 'Clareza sobre o ponto de partida, plano de ação objetivo e uma narrativa ESG consistente para apresentar a investidores, clientes e reguladores.'
+      }
+    };
+
+    const modal = document.getElementById('serviceModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSub = document.getElementById('modalSub');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+    const modalCta = document.getElementById('modalCta');
+
+    function openServiceModal(key) {
+      const data = SERVICE_DATA[key];
+      if (!data) return;
+      modalTitle.textContent = data.title;
+      modalSub.textContent = data.sub;
+      modalIcon.innerHTML = data.icon;
+      const listItems = data.deliverables.map(d => `<li>${d}</li>`).join('');
+      modalBody.innerHTML = `
+        <h4>Como trabalhamos</h4>
+        <p>${data.intro}</p>
+        <h4>O que está incluído</h4>
+        <ul>${listItems}</ul>
+        <h4>O que você ganha</h4>
+        <p>${data.benefits}</p>
+      `;
+      modal.classList.add('open');
+      document.body.classList.add('modal-lock');
+      modal.scrollTop = 0;
+    }
+
+    function closeServiceModal() {
+      modal.classList.remove('open');
+      document.body.classList.remove('modal-lock');
+    }
+
+    document.querySelectorAll('[data-open-service]').forEach(btn => {
+      btn.addEventListener('click', () => openServiceModal(btn.dataset.openService));
+    });
+    modalClose.addEventListener('click', closeServiceModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeServiceModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeServiceModal(); });
+    modalCta.addEventListener('click', closeServiceModal);
+
+    // Form handler (placeholder — envia via WhatsApp por enquanto)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const msg = `Olá, vim pelo site da Polímata.%0A%0ANome: ${data.get('nome')}%0AEmpresa: ${data.get('empresa') || '-'}%0AE-mail: ${data.get('email')}%0ATelefone: ${data.get('telefone') || '-'}%0AInteresse: ${data.get('interesse')}%0A%0AMensagem: ${data.get('mensagem') || '-'}`;
+      window.open(`https://wa.me/5519997793378?text=${msg}`, '_blank');
+      return false;
+    }
+  </script>
+
+</body>
+</html>

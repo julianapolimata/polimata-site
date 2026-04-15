@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <!-- Stylized P mark - approximation based on the Polímata brand -->
+  <path d="M150 100 L320 100 Q410 100 410 190 Q410 280 320 280 L250 280 Q210 280 210 320 L210 400 L150 400 Z"
+        stroke="#C8895C" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M210 160 L320 160 Q360 160 360 195 Q360 230 320 230 L260 230"
+        stroke="#C8895C" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M245 320 L275 320 Q305 320 305 350 L305 370 Q305 400 275 400 L260 400"
+        stroke="#C8895C" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
