@@ -1986,12 +1986,41 @@
       }
     });
 
-    // Form handler (placeholder — envia via WhatsApp por enquanto)
+    // Form handler — envia por WhatsApp + e-mail (via Formsubmit)
     function handleSubmit(e) {
       e.preventDefault();
       const data = new FormData(e.target);
+
+      // 1) Envia cópia por e-mail em background via Formsubmit.co (AJAX)
+      const payload = {
+        nome: data.get('nome') || '-',
+        empresa: data.get('empresa') || '-',
+        email: data.get('email') || '-',
+        telefone: data.get('telefone') || '-',
+        interesse: data.get('interesse') || '-',
+        mensagem: data.get('mensagem') || '-',
+        _subject: `Novo contato pelo site — ${data.get('nome') || 'sem nome'}`,
+        _template: 'table',
+        _captcha: 'false'
+      };
+      fetch('https://formsubmit.co/ajax/contato@polimatagrc.com.br', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(err => console.warn('Email backup falhou:', err));
+
+      // 2) Abre o WhatsApp com a mensagem pronta
       const msg = `Olá, vim pelo site da Polímata.%0A%0ANome: ${data.get('nome')}%0AEmpresa: ${data.get('empresa') || '-'}%0AE-mail: ${data.get('email')}%0ATelefone: ${data.get('telefone') || '-'}%0AInteresse: ${data.get('interesse')}%0A%0AMensagem: ${data.get('mensagem') || '-'}`;
       window.open(`https://wa.me/5519997793378?text=${msg}`, '_blank');
+
+      // 3) Feedback visual para o usuário
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        const original = submitBtn.textContent;
+        submitBtn.textContent = 'Enviado! ✓';
+        submitBtn.disabled = true;
+        setTimeout(() => { submitBtn.textContent = original; submitBtn.disabled = false; e.target.reset(); }, 2500);
+      }
       return false;
     }
   </script>
