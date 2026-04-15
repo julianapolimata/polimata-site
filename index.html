@@ -332,8 +332,8 @@
       color: #fff;
       width: 100%;
     }
-    .hero-card-1 { align-self: flex-end; width: 92%; }
-    .hero-card-2 { align-self: flex-start; width: 92%; margin-left: 4%; }
+    .hero-card-1,
+    .hero-card-2,
     .hero-card-3 { align-self: flex-end; width: 92%; }
     .hero-card h4 {
       color: #fff;
@@ -444,6 +444,29 @@
       font-size: 1.15rem;
     }
     .definition p { margin: 0; font-size: 0.95rem; }
+    .definition-spine {
+      border-left: 3px solid var(--navy);
+      background: linear-gradient(135deg, #fff 0%, #fdf9f4 100%);
+      position: relative;
+    }
+    .definition-spine::after {
+      content: 'Coluna cervical do GRC';
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.6;
+      font-weight: 500;
+    }
+    .definition-spine .definition-letter {
+      color: var(--navy);
+      font-size: 2.4rem;
+      letter-spacing: -2px;
+    }
 
     /* ============ SERVIÇOS ============ */
     .services-grid {
@@ -607,6 +630,13 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    }
+    .about-img-wrap img.about-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
     .about-img-placeholder {
       position: absolute;
@@ -1136,8 +1166,8 @@
           <h1>Descomplicando a <em>governança</em> corporativa.</h1>
           <p class="hero-subtitle">
             Adaptamos as melhores práticas de mercado ao porte e momento da sua empresa —
-            para que governança, riscos e compliance deixem de ser barreira e virem
-            vantagem competitiva.
+            para que governança, riscos, controles internos e compliance deixem de ser
+            barreira e virem vantagem competitiva.
           </p>
           <div class="hero-ctas">
             <a href="#contato" class="btn btn-primary">
@@ -1222,8 +1252,15 @@
           <h2>O que é GRC, afinal?</h2>
           <p>
             <strong>GRC</strong> significa <strong>Governança, Riscos e Compliance</strong> —
-            três pilares que, quando bem integrados, tornam qualquer empresa
-            mais sólida, previsível e preparada para crescer.
+            pilares que, quando bem integrados, tornam qualquer empresa mais sólida,
+            previsível e preparada para crescer.
+          </p>
+          <p>
+            Mas existe um elemento que costuma ficar de fora do acrônimo e é, na prática,
+            a <strong>coluna cervical</strong> de todo o resto: os
+            <strong>controles internos</strong>. São eles que transformam regras em rotina,
+            política em prática e intenção em resultado. Sem controles internos bem
+            desenhados, governança é discurso e compliance é papel.
           </p>
           <p>
             Parece coisa de multinacional? Não é. GRC se aplica a empresas de
@@ -1246,6 +1283,11 @@
             <div class="definition-letter">R</div>
             <h4>Riscos</h4>
             <p>A identificação, avaliação e tratamento dos eventos que podem impactar os objetivos do negócio — tanto ameaças quanto oportunidades.</p>
+          </div>
+          <div class="definition definition-spine">
+            <div class="definition-letter">CI</div>
+            <h4>Controles Internos</h4>
+            <p>A coluna cervical que sustenta tudo. Procedimentos, checagens e rotinas que asseguram execução consistente, informações confiáveis e prevenção de falhas no dia a dia.</p>
           </div>
           <div class="definition">
             <div class="definition-letter">C</div>
@@ -1426,16 +1468,18 @@
     <div class="container">
       <div class="about-preview-grid">
         <div class="about-img-wrap">
-          <div class="about-img-placeholder">
+          <!-- Foto profissional: substituir juliana.jpg pelo arquivo real -->
+          <img src="juliana.jpg" alt="Juliana Carolino, fundadora da Polímata" class="about-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+          <div class="about-img-placeholder" style="display:none;">
             [Foto profissional da Juliana Carolino]<br>
-            <small>Substituir por foto real</small>
+            <small>Adicionar arquivo juliana.jpg</small>
           </div>
         </div>
         <div class="about-text">
           <span class="eyebrow">Quem está por trás</span>
           <h2>Juliana Carolino</h2>
           <p>
-            Fundadora da Polímata, com mais de 10 anos de experiência em Governança Corporativa,
+            Fundadora da Polímata, com mais de 15 anos de experiência em Governança Corporativa,
             Gestão de Riscos, Auditoria Interna e Controles Internos.
           </p>
           <blockquote>
@@ -1445,12 +1489,12 @@
 
           <div class="about-credentials">
             <div class="credential">
-              <strong>10+</strong>
+              <strong>15+</strong>
               <span>anos de atuação</span>
             </div>
             <div class="credential">
               <strong>Big 4</strong>
-              <span>trajetória internacional</span>
+              <span>formação e atuação internacional</span>
             </div>
             <div class="credential">
               <strong>Múltiplos</strong>
@@ -1458,10 +1502,10 @@
             </div>
           </div>
 
-          <a href="#contato" class="btn btn-secondary">
+          <button type="button" class="btn btn-secondary" data-open-history>
             Conhecer trajetória completa
             <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -1667,6 +1711,97 @@
     </div>
   </div>
 
+  <!-- ========== HISTORY MODAL (Juliana) ========== -->
+  <div class="modal-overlay" id="historyModal" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+    <div class="modal" role="document">
+      <div class="modal-header">
+        <button type="button" class="modal-close" id="historyClose" aria-label="Fechar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <div class="modal-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+        </div>
+        <h3 id="historyTitle">Minha história</h3>
+        <p class="modal-sub">Da graduação em Administração à fundação da Polímata — uma trajetória de rigor técnico e entrega humanizada.</p>
+      </div>
+      <div class="modal-body">
+        <p>
+          Minha trajetória começou em 2004, ainda na graduação em Administração,
+          como estagiária de Contas a Pagar em uma multinacional. Passei pelos
+          bastidores do dia a dia corporativo — contas a pagar, controladoria,
+          fechamento contábil — o que me deu algo que muita gente em consultoria
+          nunca chega a desenvolver: a visão de quem de fato opera o negócio por dentro.
+        </p>
+        <p>
+          Em 2010, entrei em uma das Big Four como trainee em <strong>auditoria
+          externa</strong>, onde construí a base técnica que me acompanha até hoje:
+          demonstrações financeiras, testes de controles, SOX, CPCs, normas
+          internacionais. Em 2012, tive uma breve passagem em outra Big Four, também
+          em auditoria externa, e em seguida complementei a bagagem na controladoria
+          de uma empresa de tecnologia.
+        </p>
+        <p>
+          Foi em 2014 que o caminho mudou: voltei à consultoria, agora em
+          <strong>Strategic &amp; Compliance Risk</strong>, onde permaneci até 2022 —
+          chegando à posição de Gerente. Foi a fase em que a auditoria virou
+          matéria-prima para algo maior: estruturar áreas de gestão de riscos,
+          auditoria interna e controles internos para empresas nacionais e
+          internacionais, públicas e privadas, em setores como agronegócio, química,
+          bens de consumo e educação. Dentro das metodologias que me formam: COSO,
+          COSO ERM, ISO 31000, SOX e FCPA.
+        </p>
+        <p>
+          Ao todo, <strong>mais de 15 anos</strong> de estrada em Governança, Riscos,
+          Auditoria Interna e Controles Internos.
+        </p>
+
+        <h4>A virada</h4>
+        <p>
+          Entre 2022 e 2023, aceitei o desafio de assumir como <strong>Head de
+          Finanças</strong> de uma empresa em crescimento, liderando as áreas de
+          Compras, Jurídico, Tesouraria e Controladoria. Foi uma experiência que
+          fechou um ciclo: me mostrou, do lado do cliente, o que realmente importa
+          quando uma consultoria entrega um projeto — e o que costuma faltar.
+        </p>
+        <p><strong>Em julho de 2023, nasceu a Polímata.</strong></p>
+
+        <h4>Por quê</h4>
+        <p>
+          Empresas de médio porte e familiares são a espinha dorsal da economia
+          brasileira. Merecem o mesmo rigor metodológico aplicado em grandes
+          corporações — mas com uma entrega próxima, humana, que respeite o DNA
+          de cada negócio. Menos formalismo. Mais clareza. Menos relatórios de
+          gaveta. Mais decisões efetivas.
+        </p>
+
+        <h4>Formação e bagagem</h4>
+        <p>
+          Primeira graduação em <strong>Administração de Empresas</strong>, segunda
+          em <strong>Ciências Contábeis</strong>, ambas pelo Claretiano. Pós-graduação
+          em <strong>Gestão de Risco, Compliance e Auditoria pela PUC-Campinas</strong>.
+          Inglês fluente, atuação com clientes internacionais, e certificações em
+          governança, planejamento estratégico e Power BI.
+        </p>
+
+        <h4>Polímata</h4>
+        <p>
+          Polímata vem do grego e significa "aquela que sabe muitas coisas". Mais
+          do que um nome, é uma escolha de abordagem: tratar <strong>governança,
+          riscos, controles internos e compliance</strong> como campos que se
+          sustentam mutuamente — com os <strong>controles internos</strong> como
+          coluna cervical de tudo o que construímos.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <p class="hint">Quer conversar sobre o que sua empresa precisa?</p>
+        <a href="#contato" class="btn btn-primary" id="historyCta">
+          Entre em contato
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- ========== WHATSAPP FLOAT ========== -->
   <a href="https://wa.me/5519997793378?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Pol%C3%ADmata" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
@@ -1845,8 +1980,38 @@
     });
     modalClose.addEventListener('click', closeServiceModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeServiceModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeServiceModal(); });
     modalCta.addEventListener('click', closeServiceModal);
+
+    // ========== History modal (Juliana) ==========
+    const historyModal = document.getElementById('historyModal');
+    const historyClose = document.getElementById('historyClose');
+    const historyCta = document.getElementById('historyCta');
+
+    function openHistoryModal() {
+      historyModal.classList.add('open');
+      document.body.classList.add('modal-lock');
+      historyModal.scrollTop = 0;
+    }
+    function closeHistoryModal() {
+      historyModal.classList.remove('open');
+      if (!modal.classList.contains('open')) {
+        document.body.classList.remove('modal-lock');
+      }
+    }
+    document.querySelectorAll('[data-open-history]').forEach(btn => {
+      btn.addEventListener('click', openHistoryModal);
+    });
+    historyClose.addEventListener('click', closeHistoryModal);
+    historyModal.addEventListener('click', (e) => { if (e.target === historyModal) closeHistoryModal(); });
+    historyCta.addEventListener('click', closeHistoryModal);
+
+    // Shared ESC handler for both modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeServiceModal();
+        closeHistoryModal();
+      }
+    });
 
     // Form handler (placeholder — envia via WhatsApp por enquanto)
     function handleSubmit(e) {
