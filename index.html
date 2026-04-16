@@ -483,6 +483,116 @@
     }
     .definition p { margin: 0; font-size: 0.95rem; }
 
+    /* ============ PROPÓSITO (MISSÃO, VISÃO, VALORES) ============ */
+    .purpose {
+      background: linear-gradient(180deg, var(--cream) 0%, #fff 100%);
+      padding: 110px 0 120px;
+      position: relative;
+    }
+    .purpose::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(200,137,92,0.3), transparent);
+    }
+    .purpose-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 4rem;
+    }
+    .purpose-card {
+      background: #fff;
+      border: 1px solid var(--gray-300);
+      border-radius: 18px;
+      padding: 44px 40px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(10,37,64,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .purpose-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(10,37,64,0.09);
+    }
+    .purpose-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 44px;
+      width: 56px;
+      height: 4px;
+      background: var(--copper);
+      border-radius: 0 0 4px 4px;
+    }
+    .purpose-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(200,137,92,0.12), rgba(200,137,92,0.22));
+      color: var(--copper);
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+    }
+    .purpose-card h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin: 0 0 16px;
+      letter-spacing: 0.02em;
+    }
+    .purpose-card p {
+      color: #4A5568;
+      line-height: 1.75;
+      font-size: 0.98rem;
+      margin: 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid var(--gray-300);
+      border-radius: 14px;
+      padding: 28px 22px 26px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+    .value-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--copper);
+      box-shadow: 0 8px 24px rgba(10,37,64,0.08);
+    }
+    .value-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--copper);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+    }
+    .value-card h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
+    }
+    .value-card p {
+      color: #4A5568;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
     /* ============ SERVIÇOS ============ */
     .services-grid {
       display: grid;
@@ -1140,6 +1250,7 @@
       .educate-grid { grid-template-columns: 1fr; gap: 2rem; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
       .about-preview-grid { grid-template-columns: 1fr; }
       .about-img-wrap { max-width: 400px; margin: 0 auto; }
       .contact-grid { grid-template-columns: 1fr; }
@@ -1165,6 +1276,10 @@
       .nav-toggle { display: block; }
       .services-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
+      .purpose-top { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+      .purpose-card { padding: 36px 28px; }
+      .values-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .value-card { padding: 24px 22px; }
       .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -1186,6 +1301,7 @@
       </a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#proposito">Propósito</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#quem">Para quem</a></li>
         <li><a href="#metodologia">Metodologia</a></li>
@@ -1338,6 +1454,102 @@
             <h4>Compliance</h4>
             <p>A garantia de que a empresa opera em conformidade com leis, regulamentos e seus próprios valores — prevenindo fraudes e fortalecendo a cultura.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROPÓSITO (MISSÃO, VISÃO, VALORES) ========== -->
+  <section class="purpose" id="proposito">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">O que nos move</span>
+        <h2>Missão, Visão e Valores</h2>
+        <p>Os princípios que guiam nossa forma de trabalhar e a relação que construímos com cada cliente.</p>
+      </div>
+
+      <div class="purpose-top">
+        <div class="purpose-card">
+          <div class="purpose-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3>Missão</h3>
+          <p>Capacitar empresas para alcançar a excelência em governança corporativa, garantindo que, após a implementação das melhores práticas, possam operar de forma autônoma e eficaz, rumo ao crescimento sustentável. Adaptamos as boas práticas de mercado à realidade de cada empresa, promovendo excelência operacional e a continuidade dos negócios.</p>
+        </div>
+
+        <div class="purpose-card">
+          <div class="purpose-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3>Visão</h3>
+          <p>Ser referência em soluções de governança corporativa, adaptando as melhores práticas ao porte e momento de cada empresa e promovendo controle e excelência em todos os segmentos — impulsionando o crescimento sustentável e o sucesso contínuo dos nossos parceiros, tornando a governança acessível e eficaz.</p>
+        </div>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h4>Excelência</h4>
+          <p>Comprometimento com os mais altos padrões de qualidade, sempre buscando superar as expectativas dos nossos clientes.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h4>Integridade</h4>
+          <p>Agimos com honestidade, transparência e ética em todas as interações, mantendo confiança e respeito em todos os níveis.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h4>Parceria</h4>
+          <p>Relações colaborativas e de longo prazo, baseadas em confiança mútua, comunicação aberta e troca de conhecimento.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6"/>
+              <path d="M10 22h4"/>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/>
+            </svg>
+          </div>
+          <h4>Inovação</h4>
+          <p>Busca constante por novas abordagens e soluções criativas para desafios complexos e evolução contínua das práticas de GRC.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <h4>Responsabilidade Social e Ambiental</h4>
+          <p>Promovemos desenvolvimento sustentável e impacto positivo na sociedade, integrando a perspectiva social e ambiental ao que fazemos.</p>
         </div>
       </div>
     </div>
