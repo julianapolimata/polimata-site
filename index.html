@@ -224,14 +224,15 @@
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
     }
     .nav-menu a {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--navy);
       font-weight: 400;
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
     .nav-menu a:hover { color: var(--copper); }
     .nav-menu .btn {
@@ -1323,7 +1324,7 @@
       .quick-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     }
-    @media (max-width: 640px) {
+    @media (max-width: 1024px) {
       .nav-menu {
         position: fixed;
         top: 80px;
@@ -1340,6 +1341,8 @@
       }
       .nav-menu.open { transform: translateY(0); }
       .nav-toggle { display: block; }
+    }
+    @media (max-width: 640px) {
       .services-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
       .purpose-top { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
