@@ -483,6 +483,72 @@
     }
     .definition p { margin: 0; font-size: 0.95rem; }
 
+    /* ============ SOBRE NÓS (UNIFICADA) ============ */
+    .about-us {
+      background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+    }
+    .about-us .section-header {
+      margin-bottom: 3rem;
+    }
+    .name-origin {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: 940px;
+      margin: 0 auto 4.5rem;
+      padding: 40px 44px;
+      background: #fff;
+      border: 1px solid var(--gray-300);
+      border-left: 4px solid var(--copper);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 18px rgba(10,37,64,0.04);
+    }
+    .name-origin-symbol {
+      width: 90px;
+      display: grid;
+      place-items: center;
+    }
+    .name-origin-symbol img {
+      max-width: 100%;
+      height: auto;
+      opacity: 0.92;
+    }
+    .name-origin-text p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #3a4a5c;
+    }
+    .name-origin-text strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .name-origin-text em {
+      font-style: italic;
+      color: var(--copper);
+    }
+    .about-us .about-preview-grid {
+      margin-bottom: 5rem;
+    }
+    .purpose-block {
+      padding-top: 1rem;
+      border-top: 1px solid rgba(10,37,64,0.08);
+      margin-top: 1rem;
+    }
+    .purpose-block .section-header {
+      margin-bottom: 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .purpose-block .section-header h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      font-weight: 400;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin: 0.25rem 0 1rem;
+    }
+
     /* ============ PROPÓSITO (MISSÃO, VISÃO, VALORES) ============ */
     .purpose {
       background: linear-gradient(180deg, var(--cream) 0%, #fff 100%);
@@ -1280,6 +1346,8 @@
       .purpose-card { padding: 36px 28px; }
       .values-grid { grid-template-columns: 1fr; gap: 1rem; }
       .value-card { padding: 24px 22px; }
+      .name-origin { grid-template-columns: 1fr; text-align: center; padding: 32px 24px; gap: 1.25rem; }
+      .name-origin-symbol { width: 64px; margin: 0 auto; }
       .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -1300,8 +1368,8 @@
         <img src="polimata-logo-horizontal.png" alt="Polímata - Consultoria em GRC" />
       </a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#proposito">Propósito</a></li>
+        <li><a href="#sobre-nos">Sobre Nós</a></li>
+        <li><a href="#grc">GRC</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#quem">Para quem</a></li>
         <li><a href="#metodologia">Metodologia</a></li>
@@ -1340,20 +1408,6 @@
             </a>
             <a href="#servicos" class="btn btn-ghost-light">Ver serviços</a>
           </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <strong>10+</strong>
-              <span>anos de experiência em GRC</span>
-            </div>
-            <div class="hero-stat">
-              <strong>Big 4</strong>
-              <span>formação e atuação internacional</span>
-            </div>
-            <div class="hero-stat">
-              <strong>7</strong>
-              <span>frentes de atuação integradas</span>
-            </div>
-          </div>
         </div>
 
         <div class="hero-visual">
@@ -1383,28 +1437,169 @@
     </div>
   </section>
 
-  <!-- ========== QUICK ACCESS ========== -->
-  <section class="quick" aria-label="Acesso rápido">
+  <!-- ========== SOBRE NÓS (origem do nome + Juliana + Missão/Visão/Valores) ========== -->
+  <section id="sobre-nos" class="about-us">
     <div class="container">
-      <div class="quick-grid">
-        <a href="#servicos" class="quick-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
-          O que é Governança?
-        </a>
-        <a href="#servicos" class="quick-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5 4 9 9 10"/></svg>
-          O que é GRC?
-        </a>
-        <a href="#servicos" class="quick-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-          Empresas Familiares
-        </a>
+      <div class="section-header">
+        <span class="eyebrow">Sobre Nós</span>
+        <h2>Quem somos</h2>
+      </div>
+
+      <!-- Origem do nome -->
+      <div class="name-origin">
+        <div class="name-origin-symbol" aria-hidden="true">
+          <img src="polimata-symbol.png" alt="" />
+        </div>
+        <div class="name-origin-text">
+          <p>
+            <strong>Polímata</strong> — do grego <em>polymathēs</em> — é a pessoa de conhecimento
+            vasto e integrado em múltiplas áreas. É assim que entendemos governança:
+            um olhar que costura governança, riscos, auditoria, controles e compliance
+            numa visão única e adaptada a cada empresa.
+          </p>
+        </div>
+      </div>
+
+      <!-- Juliana (foto + bio) -->
+      <div class="about-preview-grid">
+        <div class="about-img-wrap">
+          <img src="juliana.jpg" alt="Juliana Carolino, fundadora da Polímata" class="about-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+          <div class="about-img-placeholder" style="display:none;">
+            [Foto profissional da Juliana Carolino]<br>
+            <small>Adicionar arquivo juliana.jpg</small>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="eyebrow">Quem está por trás</span>
+          <h2>Juliana Carolino</h2>
+          <p>
+            Fundadora da Polímata, com mais de 15 anos de experiência em Governança Corporativa,
+            Gestão de Riscos, Auditoria Interna e Controles Internos.
+          </p>
+          <blockquote>
+            Acredito que governança corporativa não é privilégio de grandes corporações —
+            é ferramenta de crescimento para qualquer empresa que queira durar.
+          </blockquote>
+
+          <div class="about-credentials">
+            <div class="credential">
+              <strong>15+</strong>
+              <span>anos de atuação</span>
+            </div>
+            <div class="credential">
+              <strong>Big 4</strong>
+              <span>formação e atuação internacional</span>
+            </div>
+            <div class="credential">
+              <strong>Múltiplos</strong>
+              <span>setores atendidos</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-secondary" data-open-history>
+            Conhecer trajetória completa
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Missão / Visão / Valores -->
+      <div class="purpose-block">
+        <div class="section-header">
+          <span class="eyebrow">O que nos move</span>
+          <h3>Missão, Visão e Valores</h3>
+        </div>
+
+        <div class="purpose-top">
+          <div class="purpose-card">
+            <div class="purpose-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <h3>Missão</h3>
+            <p>Capacitar empresas para alcançar a excelência em governança corporativa, garantindo que, após a implementação das melhores práticas, possam operar de forma autônoma e eficaz, rumo ao crescimento sustentável. Adaptamos as boas práticas de mercado à realidade de cada empresa, promovendo excelência operacional e a continuidade dos negócios.</p>
+          </div>
+
+          <div class="purpose-card">
+            <div class="purpose-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <h3>Visão</h3>
+            <p>Ser referência em soluções de governança corporativa, adaptando as melhores práticas ao porte e momento de cada empresa e promovendo controle e excelência em todos os segmentos — impulsionando o crescimento sustentável e o sucesso contínuo dos nossos parceiros, tornando a governança acessível e eficaz.</p>
+          </div>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h4>Excelência</h4>
+            <p>Comprometimento com os mais altos padrões de qualidade, sempre buscando superar as expectativas dos nossos clientes.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h4>Integridade</h4>
+            <p>Agimos com honestidade, transparência e ética em todas as interações, mantendo confiança e respeito em todos os níveis.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                <path d="M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <h4>Parceria</h4>
+            <p>Relações colaborativas e de longo prazo, baseadas em confiança mútua, comunicação aberta e troca de conhecimento.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/>
+              </svg>
+            </div>
+            <h4>Inovação</h4>
+            <p>Busca constante por novas abordagens e soluções criativas para desafios complexos e evolução contínua das práticas de GRC.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+              </svg>
+            </div>
+            <h4>Responsabilidade Social e Ambiental</h4>
+            <p>Promovemos desenvolvimento sustentável e impacto positivo na sociedade, integrando a perspectiva social e ambiental ao que fazemos.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== O QUE É GRC? ========== -->
-  <section class="educate" id="sobre">
+  <section class="educate" id="grc">
     <div class="container">
       <div class="educate-grid">
         <div class="educate-text">
@@ -1445,111 +1640,15 @@
             <p>A identificação, avaliação e tratamento dos eventos que podem impactar os objetivos do negócio — tanto ameaças quanto oportunidades.</p>
           </div>
           <div class="definition">
-            <div class="definition-letter">CI</div>
-            <h4>Controles Internos</h4>
-            <p>Procedimentos, checagens e rotinas que sustentam governança, riscos e compliance no dia a dia — assegurando execução consistente, informações confiáveis e prevenção de falhas.</p>
-          </div>
-          <div class="definition">
             <div class="definition-letter">C</div>
             <h4>Compliance</h4>
             <p>A garantia de que a empresa opera em conformidade com leis, regulamentos e seus próprios valores — prevenindo fraudes e fortalecendo a cultura.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PROPÓSITO (MISSÃO, VISÃO, VALORES) ========== -->
-  <section class="purpose" id="proposito">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">O que nos move</span>
-        <h2>Missão, Visão e Valores</h2>
-        <p>Os princípios que guiam nossa forma de trabalhar e a relação que construímos com cada cliente.</p>
-      </div>
-
-      <div class="purpose-top">
-        <div class="purpose-card">
-          <div class="purpose-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="6"/>
-              <circle cx="12" cy="12" r="2"/>
-            </svg>
+          <div class="definition">
+            <div class="definition-letter">CI</div>
+            <h4>Controles Internos</h4>
+            <p>Procedimentos, checagens e rotinas que sustentam governança, riscos e compliance no dia a dia — assegurando execução consistente, informações confiáveis e prevenção de falhas.</p>
           </div>
-          <h3>Missão</h3>
-          <p>Capacitar empresas para alcançar a excelência em governança corporativa, garantindo que, após a implementação das melhores práticas, possam operar de forma autônoma e eficaz, rumo ao crescimento sustentável. Adaptamos as boas práticas de mercado à realidade de cada empresa, promovendo excelência operacional e a continuidade dos negócios.</p>
-        </div>
-
-        <div class="purpose-card">
-          <div class="purpose-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-          </div>
-          <h3>Visão</h3>
-          <p>Ser referência em soluções de governança corporativa, adaptando as melhores práticas ao porte e momento de cada empresa e promovendo controle e excelência em todos os segmentos — impulsionando o crescimento sustentável e o sucesso contínuo dos nossos parceiros, tornando a governança acessível e eficaz.</p>
-        </div>
-      </div>
-
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <h4>Excelência</h4>
-          <p>Comprometimento com os mais altos padrões de qualidade, sempre buscando superar as expectativas dos nossos clientes.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
-          </div>
-          <h4>Integridade</h4>
-          <p>Agimos com honestidade, transparência e ética em todas as interações, mantendo confiança e respeito em todos os níveis.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <h4>Parceria</h4>
-          <p>Relações colaborativas e de longo prazo, baseadas em confiança mútua, comunicação aberta e troca de conhecimento.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18h6"/>
-              <path d="M10 22h4"/>
-              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/>
-            </svg>
-          </div>
-          <h4>Inovação</h4>
-          <p>Busca constante por novas abordagens e soluções criativas para desafios complexos e evolução contínua das práticas de GRC.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M2 12h20"/>
-              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-            </svg>
-          </div>
-          <h4>Responsabilidade Social e Ambiental</h4>
-          <p>Promovemos desenvolvimento sustentável e impacto positivo na sociedade, integrando a perspectiva social e ambiental ao que fazemos.</p>
         </div>
       </div>
     </div>
@@ -1714,54 +1813,6 @@
           <div class="process-number">04</div>
           <h4>Autonomia</h4>
           <p>Capacitamos sua equipe para operar de forma independente — porque nosso sucesso é você não precisar mais de nós.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== SOBRE A JULIANA ========== -->
-  <section id="sobre-juliana">
-    <div class="container">
-      <div class="about-preview-grid">
-        <div class="about-img-wrap">
-          <!-- Foto profissional: substituir juliana.jpg pelo arquivo real -->
-          <img src="juliana.jpg" alt="Juliana Carolino, fundadora da Polímata" class="about-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
-          <div class="about-img-placeholder" style="display:none;">
-            [Foto profissional da Juliana Carolino]<br>
-            <small>Adicionar arquivo juliana.jpg</small>
-          </div>
-        </div>
-        <div class="about-text">
-          <span class="eyebrow">Quem está por trás</span>
-          <h2>Juliana Carolino</h2>
-          <p>
-            Fundadora da Polímata, com mais de 15 anos de experiência em Governança Corporativa,
-            Gestão de Riscos, Auditoria Interna e Controles Internos.
-          </p>
-          <blockquote>
-            Acredito que governança corporativa não é privilégio de grandes corporações —
-            é ferramenta de crescimento para qualquer empresa que queira durar.
-          </blockquote>
-
-          <div class="about-credentials">
-            <div class="credential">
-              <strong>15+</strong>
-              <span>anos de atuação</span>
-            </div>
-            <div class="credential">
-              <strong>Big 4</strong>
-              <span>formação e atuação internacional</span>
-            </div>
-            <div class="credential">
-              <strong>Múltiplos</strong>
-              <span>setores atendidos</span>
-            </div>
-          </div>
-
-          <button type="button" class="btn btn-secondary" data-open-history>
-            Conhecer trajetória completa
-            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
         </div>
       </div>
     </div>
