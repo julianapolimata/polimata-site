@@ -1405,6 +1405,22 @@
       .credential span { font-size: 0.75rem; }
       .contact-form { padding: 28px 24px; }
     }
+
+    /* ========== Faixa de clientes (logos) ========== */
+    .clients-band { background: var(--cream, #F5EFE6); padding: 96px 0; overflow: hidden; }
+    .clients-band .section-header { margin-bottom: 64px; }
+    .clients-marquee { position: relative; width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%); }
+    .clients-track { display: flex; gap: 32px; align-items: center; width: max-content; animation: clients-scroll 40s linear infinite; padding: 24px 0; }
+    .clients-marquee:hover .clients-track { animation-play-state: paused; }
+    @keyframes clients-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .client-card { flex-shrink: 0; background: #fff; border-radius: 12px; width: 220px; height: 140px; display: flex; align-items: center; justify-content: center; padding: 24px; box-shadow: 0 2px 8px rgba(20,40,69,0.06); transition: all 0.3s ease; }
+    .client-card:hover { box-shadow: 0 8px 24px rgba(20,40,69,0.12); transform: translateY(-2px); }
+    .client-card img { max-height: 80px; max-width: 160px; width: auto; height: auto; object-fit: contain; }
+    @media (max-width: 700px) {
+      .clients-band { padding: 72px 0; }
+      .client-card { width: 170px; height: 110px; padding: 18px; }
+      .client-card img { max-height: 64px; max-width: 130px; }
+    }
   </style>
 </head>
 <body>
@@ -1887,19 +1903,34 @@
     </div>
   </section>
 
-  <!-- ========== DEPOIMENTOS (placeholder) — oculto até coletar depoimentos ========== -->
-  <section class="testimonials" style="display: none;">
+  <!-- ========== QUEM CONFIA NA POLÍMATA (faixa de logos de clientes) ========== -->
+  <section class="clients-band" id="clientes">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">O que dizem</span>
-        <h2>Quem já trabalhou com a Polímata</h2>
-      </div>
-      <div class="testimonial-placeholder">
-        <strong>Seção reservada para depoimentos</strong>
-        Quando você tiver 3-5 depoimentos de clientes, essa seção vira uma das mais
-        persuasivas do site. Conseguir um depoimento é questão de pedir — e faz diferença real em conversão.
+        <span class="eyebrow">Confiança no nosso trabalho</span>
+        <h2>Empresas que já contam com a Polímata</h2>
+        <p>De fundações universitárias a indústrias e prestadoras de serviço — empresas de diferentes setores escolhem a Polímata como parceira em GRC.</p>
       </div>
     </div>
+    <div class="clients-marquee">
+      <div class="clients-track" id="clients-track">
+        <div class="client-card"><img src="clientes/logo-brascabos.png" alt="Brascabos" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-ic.png" alt="IC Instrumentação Científica" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-poli-admeser.png" alt="POLI Admeser" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-poli-instrumentos.png" alt="POLI Instrumentos" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-funcamp.svg" alt="FUNCAMP" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-sdamed.png" alt="SDAMed" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-terra.png" alt="Terra Conttemporânea" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-tramar.png" alt="Tramar" loading="lazy"></div>
+        <div class="client-card"><img src="clientes/logo-plancus.png" alt="Plancus" loading="lazy"></div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var t = document.getElementById("clients-track");
+        if (t) t.innerHTML = t.innerHTML + t.innerHTML;
+      })();
+    </script>
   </section>
 
   <!-- ========== CONTATO ========== -->
